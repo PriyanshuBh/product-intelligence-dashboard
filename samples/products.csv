@@ -1,0 +1,6 @@
+sku_id,product_title,brand,category,price,mrp,availability,description,image_url,color,size,material
+SHOE001,Nike Blue Running Shoes,Nike,Shoes,3999,4999,in_stock,Lightweight running shoes for men with mesh upper,https://images.unsplash.com/photo-1542291026-7eec264c27ff,Blue,9,Mesh
+DRESS001,Red Dress,Zara,Dresses,1799,2499,in_stock,,https://images.unsplash.com/photo-1572804013309-59a88b7e92f1,Red,M,Cotton
+BAG001,,Puma,Bags,1299,,out_of_stock,,not-a-url,,,
+WATCH001,Casio Quartz Watch,Casio,Watches,2499,2999,in_stock,Stainless steel water resistant analog watch,https://images.unsplash.com/photo-1524805444758-089113d48a6d,Silver,Free,Steel
+HEAD001,JBL Headphones,JBL,Audio,1999,3999,in_stock,Wireless bluetooth headphones with deep bass,https://images.unsplash.com/photo-1505740420928-5e560c06d30e,Black,,Plastic
