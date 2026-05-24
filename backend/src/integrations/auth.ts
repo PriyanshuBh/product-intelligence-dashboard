@@ -14,9 +14,15 @@ export const auth = betterAuth({
       verification: schema.verification
     }
   }),
+  secret: env.BETTER_AUTH_SECRET,
+  baseURL: env.BETTER_AUTH_URL,
   emailAndPassword: {
     enabled: true
   },
   basePath: "/api/auth",
-  trustedOrigins: [env.CORS_ORIGIN]
+  trustedOrigins: [env.CORS_ORIGIN],
+  advanced: {
+    crossDomain: true,
+    useSecureCookies: env.NODE_ENV === "production" && !env.BETTER_AUTH_URL.includes("localhost")
+  }
 });

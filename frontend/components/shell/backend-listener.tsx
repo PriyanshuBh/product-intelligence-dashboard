@@ -4,7 +4,7 @@ import { AlertTriangle, Server, Wifi } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import { toast } from 'sonner';
 
-const BASE = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:9000/api';
+const BASE = '/api';
 
 /**
  * One-shot health probe on app mount.

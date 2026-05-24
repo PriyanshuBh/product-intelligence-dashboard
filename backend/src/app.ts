@@ -14,6 +14,8 @@ import env from "./shared/configs/env";
 
 const app: Express = express();
 
+app.set("trust proxy", true);
+
 if (env.NODE_ENV === "development") {
   app.set("etag", false); // Disable 304 caching in dev
 }

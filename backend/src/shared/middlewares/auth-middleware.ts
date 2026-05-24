@@ -1,6 +1,7 @@
 import type { Request, Response, NextFunction } from "express";
 import { auth } from "../../integrations/auth";
 import { fromNodeHeaders } from "better-auth/node";
+import { logger } from "../utils/logger";
 
 export const authMiddleware = async (
   req: Request,
@@ -12,6 +13,7 @@ export const authMiddleware = async (
   });
 
   if (!session) {
+    logger.warn({ path: req.originalUrl }, "Unauthorized access attempt");
     return res.status(401).json({
       ok: false,
       error: { code: "unauthorized", message: "Unauthorized" }
