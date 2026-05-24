@@ -10,10 +10,10 @@ Submission for the **2026 Intern Assignment — Product Intelligence Dashboard**
 
 | Surface | URL |
 | --- | --- |
-| Frontend (Vercel) | `[Insert Deployed Link Here]` |
-| Backend API (Render) | `[Insert Deployed Link Here]` |
-| Swagger / OpenAPI docs | `{BACKEND_URL}/api/docs` (also served at `http://localhost:9000/api/docs` locally) |
-| GitHub repository | `[Insert Repo Link Here]` |
+| Frontend (Vercel) | `https://product-intelligence-pb.vercel.app` |
+| Backend API (Render) | `https://product-intelligence-dashboard-suje.onrender.com` |
+| Swagger / OpenAPI docs | `https://product-intelligence-dashboard-suje.onrender.com/api/docs` (also served at `http://localhost:9000/api/docs` locally) |
+| GitHub repository | `https://github.com/PriyanshuBh/product-intelligence-dashboard` |
 
 **Demo credentials** (so reviewers can skip signup):
 - Email: `test@gmail.com`
