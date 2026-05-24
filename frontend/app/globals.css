@@ -1,0 +1,208 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Canvas — warm off-white that doesn't read as pure neutral */
+  --background: oklch(98.4% 0.002 75);
+  --foreground: oklch(20% 0.005 240);
+
+  /* Surface */
+  --surface: oklch(100% 0 0);
+  --surface-muted: oklch(97% 0.002 75);
+
+  /* Borders & dividers */
+  --border: oklch(92.5% 0.003 75);
+  --border-strong: oklch(88% 0.004 75);
+  --input: oklch(92.5% 0.003 75);
+  --ring: oklch(48% 0.18 265);
+
+  /* Neutral scale */
+  --muted: oklch(97% 0.002 75);
+  --muted-foreground: oklch(48% 0.008 240);
+  --muted-soft: oklch(58% 0.008 240);
+  --muted-strong: oklch(36% 0.008 240);
+
+  /* shadcn-compatible interactive surface (hover/focus) */
+  --accent: oklch(95% 0.003 75);
+  --accent-foreground: oklch(18% 0.005 240);
+
+  /* Floating panels (popovers, dropdowns, tooltips) */
+  --popover: oklch(100% 0 0);
+  --popover-foreground: oklch(20% 0.005 240);
+
+  /* Card surface */
+  --card: oklch(100% 0 0);
+  --card-foreground: oklch(20% 0.005 240);
+
+  /* Secondary button surface */
+  --secondary: oklch(95% 0.003 75);
+  --secondary-foreground: oklch(18% 0.005 240);
+
+  /* Primary — destructive — etc, kept to shadcn names */
+  --primary: oklch(20% 0.005 240);
+  --primary-foreground: oklch(99% 0 0);
+  --destructive: oklch(58% 0.19 22);
+  --destructive-foreground: oklch(99% 0 0);
+
+  /* Brand — used sparingly for the indigo accent moments */
+  --brand: oklch(48% 0.18 265);
+  --brand-foreground: oklch(99% 0 0);
+  --brand-soft: oklch(96% 0.025 265);
+
+  /* Status tokens */
+  --success: oklch(60% 0.13 155);
+  --warning: oklch(72% 0.13 75);
+  --danger: oklch(58% 0.19 22);
+
+  /* Sidebar */
+  --sidebar: oklch(99% 0.002 75);
+  --sidebar-foreground: oklch(28% 0.006 240);
+  --sidebar-primary: oklch(20% 0.005 240);
+  --sidebar-primary-foreground: oklch(99% 0 0);
+  --sidebar-accent: oklch(95% 0.003 75);
+  --sidebar-accent-foreground: oklch(18% 0.005 240);
+  --sidebar-border: oklch(92% 0.003 75);
+  --sidebar-ring: oklch(48% 0.18 265);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted-soft: var(--muted-soft);
+  --color-muted-strong: var(--muted-strong);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-brand-soft: var(--brand-soft);
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "JetBrains Mono", "SFMono-Regular", monospace;
+}
+
+* {
+  border-color: var(--border);
+}
+
+html,
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "cv11", "ss01", "ss03";
+}
+
+/* Tailwind v4 dropped the default cursor:pointer on buttons. Restore it for
+   anything clickable, then back off when the element is genuinely inert. */
+button:not(:disabled),
+[role="button"]:not([aria-disabled="true"]),
+a[href],
+label[for],
+summary,
+select:not(:disabled),
+[type="submit"]:not(:disabled),
+[type="button"]:not(:disabled),
+[type="reset"]:not(:disabled),
+[type="checkbox"]:not(:disabled),
+[type="radio"]:not(:disabled) {
+  cursor: pointer;
+}
+
+button:disabled,
+[role="button"][aria-disabled="true"],
+[type="submit"]:disabled,
+[type="button"]:disabled,
+[type="reset"]:disabled {
+  cursor: not-allowed;
+}
+
+/* Tabular numerals for any element that opts in via data-attr or class */
+.tabular,
+[data-tabular],
+[class*="tabular-nums"] {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Hide scrollbars but keep functionality (used in horizontally scrolling rails) */
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hidden {
+  scrollbar-width: none;
+}
+
+/* Subtle dotted background pattern reserved for empty states */
+.dot-grid {
+  background-image: radial-gradient(oklch(85% 0.005 75) 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+
+/* Mobile sidebar slide animations (no tailwindcss-animate plugin installed) */
+@keyframes sidebar-slide-in-left {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+@keyframes sidebar-slide-out-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+@keyframes sidebar-slide-in-right {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+@keyframes sidebar-slide-out-right {
+  from { transform: translateX(0); }
+  to { transform: translateX(100%); }
+}
+@keyframes sidebar-overlay-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes sidebar-overlay-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
