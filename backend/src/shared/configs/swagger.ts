@@ -1,10 +1,10 @@
 import swaggerUi from "swagger-ui-express";
-import { Express } from "express";
-import env from "./env";
+import { Router } from "express";
+import { createRequire } from "module";
 
-import swaggerDocument from "../../docs/swagger.json";
+const require = createRequire(import.meta.url);
+const swaggerDocument = require("../../docs/swagger.json");
 
-export const setupSwagger = (app: Express) => {
-  if (env.NODE_ENV !== "development") return;
-  app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+export const setupSwagger = (router: Router) => {
+  router.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 };

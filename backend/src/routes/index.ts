@@ -9,6 +9,7 @@ import alertsRoutes from "../modules/alerts/alerts.routes";
 import videoRoutes from "../modules/video/video.routes";
 import enhancementRoutes from "../modules/enhancement/enhancement.routes";
 import authRoutes from "../modules/auth/auth.routes";
+import { setupSwagger } from "../shared/configs/swagger";
 import { authMiddleware } from "../shared/middlewares/auth-middleware";
 
 const router = Router();
@@ -16,6 +17,7 @@ const router = Router();
 // Public routes
 router.use("/auth", authRoutes);
 router.use("/health", healthRoutes);
+setupSwagger(router);
 
 // Protected routes
 router.use(authMiddleware);

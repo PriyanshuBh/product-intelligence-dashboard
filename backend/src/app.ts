@@ -1,5 +1,4 @@
 import express, { Express, Request, Response } from "express";
-import "dotenv/config";
 import cors from "cors";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
@@ -11,7 +10,6 @@ import Routes from "./routes/index";
 
 import { errorHandler } from "./shared/middlewares/error-handler";
 import { notFoundHandler } from "./shared/middlewares/not-found-handler";
-import { setupSwagger } from "./shared/configs/swagger";
 import env from "./shared/configs/env";
 
 const app: Express = express();
@@ -33,9 +31,6 @@ app.use(
 app.use(helmet());
 app.use(cookieParser());
 app.use(morgan(env.NODE_ENV === "development" ? "dev" : "combined"));
-
-//? Swagger Setup
-setupSwagger(app);
 
 //? Routes
 app.get("/", (req: Request, res: Response) => {
